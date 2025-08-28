@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>Changing Theme</title>
+ 
+    <style>
+        h1 {
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+        button {
+            color: black;
+            background-color: darkgray;
+            width: auto;
+            margin: 0 10px;
+            height: 30px;
+        }
+        section {
+            font-size: 1.2rem;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-style: italic;
+        }
+        figure {
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          
+        $("button#dark").click(function() {
+          $("body").css("background-color", "black");
+          $("*").css("color", "white");                
+          $('img[alt="cartoon sun"]').attr({
+            src: 'moon.jpeg',
+            alt: 'cartoon moon',
+            height: 280,
+            width: 388
+          });
+        });
+
+        $("button#light").click(function() {
+          $("body").css("background-color", "white");
+          $("*").css("color", "black");
+          $('img[alt="cartoon moon"]').attr({
+            src: 'sun.jpeg',
+            alt: 'cartoon sun',
+            height: 280,
+            width: 300
+          });
+        });
+
+      });
+    </script>
+</head>
+ 
+<body>
+        <header>
+            <h1>Changing Themes</h1>
+        </header>
+        <section>
+            <h2>Using jQuery</h2>
+            <p>We will create a jQuery code so if the user clicks on Light Theme button, you will apply the appropriate class to make the whole page lighter. The image below will also be changed to show the image of the sun! If the Dark Theme button is clicked, the image of the moon will be displayed and the appropriate class will be applied to the whole page as well</p>
+            <figure>
+                <img src="sun.jpeg" alt="cartoon sun" width="300" height="280">
+            </figure>
+        </section>
+        <footer>
+            <button id="light">Light Theme</button>
+            <button id="dark">Dark Theme</button>
+        </footer>
+        
+            <section>
+            <h2>HTMX</h2>
+            <p>Is it possible to have multiple trigger types in HTMX? How would I use/code the htmx attributes for this scenario?  Make sure you respond showing what would be the code for the select element but also remember to mention what does the value "/api/search" represents!</p>
+            <p>Yes, you can have multiple trigger types.  The value of hx-trigger just needs to have the multiple events comma separated, like this:</p>
+            <pre><code>
+                &lt;select name="city" id="city"
+                        hx-post="/api/search"
+                        hx-trigger="load, change"
+                        hx-target="#result"&gt;
+                    &lt;option&gt;San Francisco&lt;/option&gt;
+                    &lt;option&gt;New York&lt;/option&gt;
+                    &lt;option&gt;Las Vegas&lt;/option&gt;
+                &lt;/select&gt;
+            </code></pre>
+            <p>The "/api/search" is the URL that the select value will POST to.</p>
+        </section>
+</body>
+ 
+</html>
